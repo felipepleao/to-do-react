@@ -1,0 +1,29 @@
+.taskContainer {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  column-gap: 1.2rem;
+  padding: 1.6rem;
+  background-color: var(--gray-500);
+  border-radius: 8px;
+  border: 1px solid var(--Gray-400, #333);
+}
+
+.taskContainer input {
+  display: inline-block;
+  margin-top: 3px;
+  background-color: red;
+}
+
+
+.taskContainer p {
+  font-size: 1.4rem;
+  color: var(--gray-100);
+}
+
+.taskContainer button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 5px;
+}
