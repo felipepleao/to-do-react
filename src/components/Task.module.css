@@ -10,15 +10,16 @@
 }
 
 .taskContainer input {
-  display: inline-block;
   margin-top: 3px;
-  background-color: red;
 }
 
 
 .taskContainer p {
   font-size: 1.4rem;
   color: var(--gray-100);
+  flex: 1;
+  /* overflow-wrap: break-word;
+  width: 1px; */
 }
 
 .taskContainer button {

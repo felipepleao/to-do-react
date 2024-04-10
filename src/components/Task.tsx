@@ -1,5 +1,5 @@
 import styles from "./Task.module.css";
-import Trash from "../assets/trash.svg"
+import Trash from "../assets/trash.svg";
 
 interface TaskProps {
   taskDescription: string;
@@ -11,7 +11,7 @@ export function Task({ taskDescription }: TaskProps) {
       <input type="checkbox" name="checkbox" id="checkbox" />
 
       <p>{taskDescription}</p>
-
+      
       <button>
         <img src={Trash} alt="" />
       </button>
