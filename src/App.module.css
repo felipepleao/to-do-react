@@ -22,3 +22,7 @@
   flex-direction: column;
   row-gap: 1.2rem;
 }
+
+.complete {
+  background-color: yellow;
+}

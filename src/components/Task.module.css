@@ -28,3 +28,8 @@
   cursor: pointer;
   padding: 5px;
 }
+
+.complete p {
+  color: var(--gray-300);
+  text-decoration: line-through;
+}
