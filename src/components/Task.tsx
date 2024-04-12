@@ -6,7 +6,7 @@ interface TaskProps {
   taskDescription: string;
 }
 
-export function Task({ taskDescription, isChecked  }: TaskProps) {
+export function Task({ taskDescription, isChecked, deleteTask  }: TaskProps) {
   const [taskChecked, setTaskChecked] = useState(false);
 
   function checkedTask() {
@@ -14,6 +14,10 @@ export function Task({ taskDescription, isChecked  }: TaskProps) {
    
     setTaskChecked(checked)
     isChecked(checked)
+  }
+
+  function handleDeleteTask() {
+    deleteTask(taskDescription, taskChecked)
   }
 
   return (
@@ -31,7 +35,7 @@ export function Task({ taskDescription, isChecked  }: TaskProps) {
 
       <p>{taskDescription}</p>
 
-      <button>
+      <button onClick={handleDeleteTask}>
         <img src={Trash} alt="" />
       </button>
     </div>

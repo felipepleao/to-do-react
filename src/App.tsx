@@ -9,12 +9,13 @@ import { Task } from "./components/Task";
 import { EmptyList } from "./components/EmptyList";
 
 export function App() {
-  // const [taskText, setText] = useState("");
   const [tasks, setTasks] = useState([]);
   const [taskComplete, setTaskComplete] = useState(0);
+  const [numberOfTasks, setNumberOfTasks] = useState(0);
 
   function getTextTask(text) {
     setTasks([...tasks, text]);
+    setNumberOfTasks(tasks.length + 1);
   }
 
   function isChecked(check) {
@@ -25,8 +26,21 @@ export function App() {
     });
   }
 
+  function deleteTask(taskToDelete, checked) {
+    const tasksWithoutDeletedOne = tasks.filter((task) => {
+      return task !== taskToDelete;
+    });
+
+    setTasks(tasksWithoutDeletedOne);
+
+    setNumberOfTasks(tasks.length - 1);
+
+    if (checked) {
+      setTaskComplete((prevComplete) => prevComplete - 1);
+    }
+  }
+
   const haveList = tasks.length > 0;
-  const taskQuantity = tasks.length;
 
   return (
     <>
@@ -37,13 +51,13 @@ export function App() {
           <div className={styles.taskWrapper}>
             <TaskStatus
               taskCondition="Tarefas criadas"
-              taskCounter={taskQuantity}
+              taskCounter={numberOfTasks}
               status="progresso"
             />
             <TaskStatus
               taskCondition="Concluídas"
               taskComplete={taskComplete}
-              taskCounter={taskQuantity}
+              taskCounter={numberOfTasks}
               status="concluido"
             />
           </div>
@@ -57,6 +71,7 @@ export function App() {
                     taskDescription={task}
                     isChecked={isChecked}
                     taskComplete={taskComplete}
+                    deleteTask={deleteTask}
                   />
                 );
               })
