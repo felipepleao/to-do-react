@@ -1,16 +1,18 @@
 import styles from "./Task.module.css";
 import Trash from "../assets/trash.svg";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 interface TaskProps {
   taskDescription: string;
+  isChecked: (isChecked: boolean) => void
+  deleteTask: (taskToDelete: string, checked: boolean) => void
 }
 
 export function Task({ taskDescription, isChecked, deleteTask  }: TaskProps) {
   const [taskChecked, setTaskChecked] = useState(false);
 
-  function checkedTask() {
-    const checked = event.target.checked;
+  function checkedTask(event: FormEvent<HTMLInputElement>) {
+    const checked = (event.target as HTMLInputElement).checked;
    
     setTaskChecked(checked)
     isChecked(checked)

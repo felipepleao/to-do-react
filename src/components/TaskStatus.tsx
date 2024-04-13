@@ -1,6 +1,8 @@
 interface TaskClass {
   taskCondition: string;
-  taskCounter: string;
+  taskCounter: number;
+  taskComplete?: number;
+  status: string;
 }
 
 import styles from "./TaskStatus.module.css";

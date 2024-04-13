@@ -1,16 +1,20 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, ChangeEvent, InvalidEvent } from "react";
 import Plus from "../assets/plus.svg";
 import styles from "./AddTask.module.css";
 
-export function AddTask({ getTextTask }) {
+interface GetTask {
+  getTextTask: (text: string) => void;
+}
+
+export function AddTask({ getTextTask }: GetTask) {
   const [newText, setNewText] = useState("");
 
-  function handleNewTextChange(event: FormEvent) {
+  function handleNewTextChange(event: ChangeEvent<HTMLInputElement>) {
     event.target.setCustomValidity("");
     setNewText(event.target.value);
   }
 
-  function handleNewTaksIvalid(event) {
+  function handleNewTaksIvalid(event: InvalidEvent<HTMLInputElement>) {
     event.target.setCustomValidity("Esse campo é obrigatório");
   }
 

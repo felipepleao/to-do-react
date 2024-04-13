@@ -8,17 +8,18 @@ import { TaskStatus } from "./components/TaskStatus";
 import { Task } from "./components/Task";
 import { EmptyList } from "./components/EmptyList";
 
+
 export function App() {
   const [tasks, setTasks] = useState([]);
   const [taskComplete, setTaskComplete] = useState(0);
   const [numberOfTasks, setNumberOfTasks] = useState(0);
 
-  function getTextTask(text) {
+  function getTextTask(text: string) {
     setTasks([...tasks, text]);
     setNumberOfTasks(tasks.length + 1);
   }
 
-  function isChecked(check) {
+  function isChecked(check: boolean) {
     const isChecked = check;
 
     setTaskComplete(() => {
@@ -26,7 +27,7 @@ export function App() {
     });
   }
 
-  function deleteTask(taskToDelete, checked) {
+  function deleteTask(taskToDelete:[], checked:boolean) {
     const tasksWithoutDeletedOne = tasks.filter((task) => {
       return task !== taskToDelete;
     });
