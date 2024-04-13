@@ -6,7 +6,12 @@ export function AddTask({ getTextTask }) {
   const [newText, setNewText] = useState("");
 
   function handleNewTextChange(event: FormEvent) {
+    event.target.setCustomValidity("");
     setNewText(event.target.value);
+  }
+
+  function handleNewTaksIvalid(event) {
+    event.target.setCustomValidity("Esse campo é obrigatório");
   }
 
   function handleCreateNewTask(event: FormEvent) {
@@ -23,7 +28,9 @@ export function AddTask({ getTextTask }) {
         value={newText}
         name="text"
         onChange={handleNewTextChange}
+        onInvalid={handleNewTaksIvalid}
         placeholder="Adicione uma nova tarefa"
+        required
       />
 
       <button>
